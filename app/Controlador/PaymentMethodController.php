@@ -19,9 +19,9 @@ class PaymentMethodController
     public function consultar()
     {
         $scripts = [
-            'funciones.js',
-            'tabla.js',
-            'manage.js?menu=metodopago'
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION,
+            'manage.min.js?menu=metodopago'
         ];
         $data = $this->paymentMethodDAO->consult();
         require HEADER;
@@ -31,7 +31,7 @@ class PaymentMethodController
     public function nuevo()
     {
         $scripts = [
-            'manage.js?menu=metodopago'
+            'manage.min.js?menu=metodopago'
         ];
         require HEADER;
         require_once RUTA . '/Vistas/Mantenimiento/' . $this->clase . '/Nuevo.php';
@@ -45,7 +45,7 @@ class PaymentMethodController
             if (!empty($data) && is_array($data)) {
                 $data = $data[0];
                 $scripts = [
-                    'manage.js?menu=metodopago'
+                    'manage.min.js?menu=metodopago'
                 ];
                 require HEADER;
                 require_once RUTA . '/Vistas/Mantenimiento/' . $this->clase . '/Editar.php';

@@ -23,9 +23,9 @@ class LocationsController
     public function consultar()
     {
         $scripts = [
-            'funciones.js',
-            'tabla.js',
-            'manage.js?menu=ubicaciones'
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION,
+            'manage.min.js?menu=ubicaciones'
         ];
         $data = $this->locationsDAO->consult();
         require HEADER;
@@ -35,7 +35,7 @@ class LocationsController
     public function nuevo()
     {
         $scripts = [
-            'manage.js?menu=ubicaciones'
+            'manage.min.js?menu=ubicaciones'
         ];
         require HEADER;
         require_once RUTA . '/Vistas/Mantenimiento/' . $this->clase . '/Nuevo.php';
@@ -49,7 +49,7 @@ class LocationsController
             if (!empty($data) && is_array($data)) {
                 $data = $data[0];
                 $scripts = [
-                    'manage.js?menu=ubicaciones'
+                    'manage.min.js?menu=ubicaciones'
                 ];
                 require HEADER;
                 require_once RUTA . '/Vistas/Mantenimiento/' . $this->clase . '/Editar.php';
@@ -97,9 +97,9 @@ class LocationsController
     public function temperatura()
     {
         $scripts = [
-            'funciones.js',
-            'tabla.js',
-            'temperature.js'
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION,
+            'temperature.min.js?v=' . VERSION,
         ];
         require HEADER;
         require_once RUTA . '/Vistas/Temperatura/Temperatura.php';

@@ -73,9 +73,7 @@ function buildList(data) {
     let rows = '';
     data.forEach(item => {
         const badgeClass =
-            item.estado === 'Pagada'
-                ? 'success'
-                : 'warning';
+            item.estado === 'Pagada' ? 'success' : 'warning';
         rows += `
             <tr>
                 <td>

@@ -19,9 +19,9 @@ class StatusTransactionController
     public function consultar()
     {
         $scripts = [
-            'funciones.js',
-            'tabla.js',
-            'manage.js?menu=estados'
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION,
+            'manage.min.js?menu=estados'
         ];
         $data = $this->statusTransactionDAO->consult(true);
         require HEADER;
@@ -31,7 +31,7 @@ class StatusTransactionController
     public function nuevo()
     {
         $scripts = [
-            'manage.js?menu=estados'
+            'manage.min.js?menu=estados'
         ];
         require HEADER;
         require_once RUTA . '/Vistas/Mantenimiento/' . $this->clase . '/Nuevo.php';
@@ -45,7 +45,7 @@ class StatusTransactionController
             if (!empty($data) && is_array($data)) {
                 $data = $data[0];
                 $scripts = [
-                    'manage.js?menu=estados'
+                    'manage.min.js?menu=estados'
                 ];
                 require HEADER;
                 require_once RUTA . '/Vistas/Mantenimiento/' . $this->clase . '/Editar.php';

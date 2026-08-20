@@ -42,9 +42,9 @@ class SalesController
     public function consultar()
     {
         $scripts = [
-            'ventasview.js',
-            'funciones.js',
-            'tabla.js'
+            'ventasview.min.js?v=' . VERSION,
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION,
         ];
         require HEADER;
         require_once RUTA . '/Vistas/' . $this->clase . '/' . $this->clase . '.php';
@@ -100,8 +100,8 @@ class SalesController
     public function nuevo()
     {
         $scripts = [
-            'ventas.js',
-            'funciones.js'
+            'ventas.js?v=' . VERSION,
+            'funciones.min.js?v=' . VERSION
         ];
         $suppliers = $this->suppliersDAO->consultActive();
         $status = $this->statusTransactionDAO->consultActive();
@@ -113,11 +113,11 @@ class SalesController
     public function resume()
     {
         $scripts = [
-            'ventas.js',
-            'funciones.js'
+            'ventas.js?v=' . VERSION,
+            'funciones.min.js?v=' . VERSION
         ];
         $styles = [
-            'compras.css'
+            'compras.min.css?v=' . VERSION,
         ];
         $id = $_GET['id'] ?? null;
         if ($id != null) {

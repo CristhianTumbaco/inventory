@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<?php echo RUTA_WEB; ?>/assets/css/add.min.css" />
     <link rel="stylesheet" href="<?php echo RUTA_WEB; ?>/assets/libs/select2/select2.min.css" />
     <link rel="stylesheet" href="<?php echo RUTA_WEB; ?>/assets/libs/select2/select2-bootstrap4.min.css" />
-    <link href="https://cdn.datatables.net/v/bs5/dt-2.3.2/rg-1.5.1/datatables.min.css" rel="stylesheet">
+    <link href="<?php echo RUTA_WEB; ?>/assets/libs/datatables/datatables.min.css" rel="stylesheet">
     <?php if (!empty($styles)): ?>
         <?php foreach ($styles as $style): ?>
             <?php
@@ -38,7 +38,7 @@
                         <span class="fw-semibold">INVENTARIO LISSYMAR</span>
                     </a>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-                        <span class="material-icons-outlined fs-8">close</span>
+                        <span class="material-symbols-outlined fs-8">close</span>
                     </div>
                 </div>
                 <!-- Sidebar navigation-->
@@ -47,14 +47,14 @@
                         <li class="sidebar-item mt-3" id="dashboard">
                             <a class="sidebar-link" href="<?php echo RUTA_WEB; ?>/Dashboard/" aria-expanded="false">
                                 <span>
-                                    <span class="material-icons-outlined">dashboard</span>
+                                    <span class="material-symbols-outlined">dashboard</span>
                                 </span>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
                         <?php if ($_SESSION['ctrol'] == 0) { ?>
                             <li class="nav-small-cap">
-                                <span class="material-icons-outlined nav-small-cap-icon fs-4">more_horiz</span>
+                                <span class="material-symbols-outlined nav-small-cap-icon fs-4">more_horiz</span>
                                 <span class="hide-menu">Compras</span>
                             </li>
                             <li class="sidebar-item" id="compras">
@@ -73,7 +73,7 @@
                             </li>
                         <?php } ?>
                         <li class="nav-small-cap">
-                            <span class="material-icons-outlined nav-small-cap-icon fs-4">more_horiz</span>
+                            <span class="material-symbols-outlined nav-small-cap-icon fs-4">more_horiz</span>
                             <span class="hide-menu">Inventario</span>
                         </li>
                         <li class="sidebar-item" id="stock">
@@ -112,7 +112,7 @@
                         <?php } ?>
                         <?php if ($_SESSION['ctrol'] == 0) { ?>
                             <li class="nav-small-cap">
-                                <span class="material-icons-outlined nav-small-cap-icon fs-4">more_horiz</span>
+                                <span class="material-symbols-outlined nav-small-cap-icon fs-4">more_horiz</span>
                                 <span class="hide-menu">Ventas</span>
                             </li>
                             <li class="sidebar-item" id="ventas">
@@ -125,13 +125,13 @@
                         <?php } ?>
                         <?php if ($_SESSION['ctrol'] == 0) { ?>
                             <li class="nav-small-cap">
-                                <span class="material-icons-outlined nav-small-cap-icon fs-4">more_horiz</span>
+                                <span class="material-symbols-outlined nav-small-cap-icon fs-4">more_horiz</span>
                                 <span class="hide-menu">MANTENIMIENTO</span>
                             </li>
                             <li class="sidebar-item" id="usuarios">
                                 <a class="sidebar-link" href="<?php echo RUTA_WEB; ?>/Usuarios/" aria-expanded="false">
                                     <span>
-                                        <span class="material-icons-outlined">account_box</span>
+                                        <span class="material-symbols-outlined">account_box</span>
                                     </span>
                                     <span class="hide-menu">Usuarios</span>
                                 </a>
@@ -226,7 +226,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item d-block d-xl-none">
                             <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
-                                <span class="material-icons-outlined">menu</span>
+                                <span class="material-symbols-outlined">menu</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -242,7 +242,7 @@
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                                     <div class="message-body">
                                         <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                                            <span class="material-icons-outlined fs-6">person</span>
+                                            <span class="material-symbols-outlined fs-6">person</span>
                                             <p class="mb-0 fs-3"><?= $_SESSION['ctname'] ?></p>
                                         </a>
                                         <a href="<?php echo RUTA_WEB; ?>/Logout/" class="btn btn-outline-danger mx-3 mt-2 d-block">Salir</a>

@@ -19,9 +19,9 @@ class PresentationsController
     public function consultar()
     {
         $scripts = [
-            'funciones.js',
-            'tabla.js',
-            'manage.js?menu=presentaciones'
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION,
+            'manage.min.js?menu=presentaciones'
         ];
         $data = $this->presentationsDAO->consult();
         require HEADER;
@@ -32,7 +32,7 @@ class PresentationsController
     {
         $scripts = [
             'funciones.js',
-            'manage.js?menu=presentaciones'
+            'manage.min.js?menu=presentaciones'
         ];
         require HEADER;
         require_once RUTA . '/Vistas/Mantenimiento/' . $this->clase . '/Nuevo.php';
@@ -47,7 +47,7 @@ class PresentationsController
                 $data = $data[0];
                 $scripts = [
                     'funciones.js',
-                    'manage.js?menu=presentaciones'
+                    'manage.min.js?menu=presentaciones'
                 ];
                 require HEADER;
                 require_once RUTA . '/Vistas/Mantenimiento/' . $this->clase . '/Editar.php';

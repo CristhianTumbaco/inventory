@@ -15,7 +15,7 @@
     <div class="ms-auto">
         <a href="<?php echo RUTA_WEB; ?>/Stock/<?= $data['subproductId'] ?>"
             class="btn btn-light border border-1 d-flex align-items-center justify-content-center">
-            <span class="material-icons-outlined">arrow_outward</span>
+            <span class="material-symbols-outlined">arrow_outward</span>
             <span class="ms-2">Ir a Stock</span>
         </a>
 

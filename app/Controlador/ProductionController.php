@@ -18,9 +18,9 @@ class ProductionController
     public function consultar()
     {
         $scripts = [
-            'produccion.js',
-            'funciones.js',
-            'tabla.js'
+            'produccion.min.js?v=' . VERSION,
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION
         ];
         require HEADER;
         require_once RUTA . '/Vistas/' . $this->clase . '/' . $this->clase . '.php';

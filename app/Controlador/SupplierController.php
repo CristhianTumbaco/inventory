@@ -19,9 +19,9 @@ class SupplierController
     public function consultar()
     {
         $scripts = [
-            'funciones.js',
-            'tabla.js',
-            'manage.js?menu=proveedores'
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION,
+            'manage.min.js?menu=proveedores'
         ];
         $data = $this->suppliersDAO->consult();
         require HEADER;
@@ -31,7 +31,7 @@ class SupplierController
     public function nuevo()
     {
         $scripts = [
-            'manage.js?menu=proveedores'
+            'manage.min.js?menu=proveedores'
         ];
         require HEADER;
         require_once RUTA . '/Vistas/Mantenimiento/' . $this->clase . '/Nuevo.php';
@@ -45,7 +45,7 @@ class SupplierController
             if (!empty($data) && is_array($data)) {
                 $data = $data[0];
                 $scripts = [
-                    'manage.js?menu=proveedores'
+                    'manage.min.js?menu=proveedores'
                 ];
                 require HEADER;
                 require_once RUTA . '/Vistas/Mantenimiento/' . $this->clase . '/Editar.php';

@@ -19,9 +19,9 @@ class TraceabilityController
     public function consultar()
     {
         $scripts = [
-            'trazabilidad.js',
-            'funciones.js',
-            'tabla.js'
+            'trazabilidad.min.js?v=' . VERSION,
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION,
         ];
         require HEADER;
         require_once RUTA . '/Vistas/' . $this->clase . '/' . $this->clase . '.php';
@@ -46,8 +46,8 @@ class TraceabilityController
     public function resume()
     {
         $scripts = [
-            'trazabilidad1.js',
-            'funciones.js'
+            'trazabilidad1.min.js?v=' . VERSION,
+            'funciones.min.js?v=' . VERSION
         ];
         $id = $_GET['id'] ?? null;
         if ($id != null) {

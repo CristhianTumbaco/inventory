@@ -23,9 +23,9 @@ class SubproductsController
     public function consultar()
     {
         $scripts = [
-            'funciones.js',
-            'tabla.js',
-            'manage.js?menu=subproductos'
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION,
+            'manage.min.js?menu=subproductos'
         ];
         $products = $this->productsDAO->consult();
         $data = $this->subproductsDAO->consult();
@@ -36,7 +36,7 @@ class SubproductsController
     public function nuevo()
     {
         $scripts = [
-            'manage.js?menu=subproductos'
+            'manage.min.js?menu=subproductos'
         ];
         $products = $this->productsDAO->consult();
         require HEADER;
@@ -51,7 +51,7 @@ class SubproductsController
             if (!empty($data) && is_array($data)) {
                 $data = $data[0];
                 $scripts = [
-                    'manage.js?menu=subproductos'
+                    'manage.min.js?menu=subproductos'
                 ];
                 $products = $this->productsDAO->consult();
                 require HEADER;

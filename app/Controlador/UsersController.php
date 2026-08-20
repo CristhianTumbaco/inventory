@@ -19,7 +19,9 @@ class UsersController
     public function consultar()
     {
         $scripts = [
-            'users.js',
+            'users.min.js?v=' . VERSION,
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION
         ];
         $data = $this->usersDAO->consult();
         require HEADER;
@@ -29,7 +31,8 @@ class UsersController
     public function nuevo()
     {
         $scripts = [
-            'users.js',
+            'users.min.js?v=' . VERSION,
+            'funciones.min.js?v=' . VERSION
         ];
         require HEADER;
         require_once RUTA . '/Vistas/Mantenimiento/' . $this->clase . '/Nuevo.php';
@@ -43,7 +46,7 @@ class UsersController
             if (!empty($data) && is_array($data)) {
                 $data = $data[0];
                 $scripts = [
-                    'users.js',
+                    'users.min.js?v=' . VERSION
                 ];
                 require HEADER;
                 require_once RUTA . '/Vistas/Mantenimiento/' . $this->clase . '/Editar.php';

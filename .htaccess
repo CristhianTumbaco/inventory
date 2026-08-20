@@ -1,0 +1,2 @@
+ErrorDocument 404 /inventario/errors/404.html
+ErrorDocument 403 /inventario/errors/403.html

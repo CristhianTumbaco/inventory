@@ -23,9 +23,9 @@ class ProductsController
     public function consultar()
     {
         $scripts = [
-            'funciones.js',
-            'tabla.js',
-            'manage.js?menu=productos'
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION,
+            'manage.min.js?menu=productos'
         ];
         $category = $this->categoriesDAO->consult();
         $data = $this->productsDAO->consult();
@@ -36,7 +36,7 @@ class ProductsController
     public function nuevo()
     {
         $scripts = [
-            'manage.js?menu=productos'
+            'manage.min.js?menu=productos'
         ];
         $category = $this->categoriesDAO->consult();
         require HEADER;
@@ -51,7 +51,7 @@ class ProductsController
             if (!empty($data) && is_array($data)) {
                 $data = $data[0];
                 $scripts = [
-                    'manage.js?menu=productos'
+                    'manage.min.js?menu=productos'
                 ];
                 $category = $this->categoriesDAO->consult();
                 require HEADER;

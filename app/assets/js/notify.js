@@ -1,4 +1,4 @@
-const ruta_web = '/inventario/app';
+const ruta_web = '/app';
 const Toast = Swal.mixin({
     toast: true,
     position: "top-end",

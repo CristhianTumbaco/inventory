@@ -19,9 +19,9 @@ class CategoriesController
     public function consultar()
     {
         $scripts = [
-            'funciones.js',
-            'tabla.js',
-            'manage.js?menu=categorias'
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION,
+            'manage.min.js?menu=categorias'
         ];
         $data = $this->categoriesDAO->consult();
         require HEADER;
@@ -31,7 +31,7 @@ class CategoriesController
     public function nuevo()
     {
         $scripts = [
-            'manage.js?menu=categorias'
+            'manage.min.js?menu=categorias'
         ];
         require HEADER;
         require_once RUTA . '/Vistas/Mantenimiento/' . $this->clase . '/Nuevo.php';
@@ -45,7 +45,7 @@ class CategoriesController
             if (!empty($data) && is_array($data)) {
                 $data = $data[0];
                 $scripts = [
-                    'manage.js?menu=categorias'
+                    'manage.min.js?menu=categorias'
                 ];
                 require HEADER;
                 require_once RUTA . '/Vistas/Mantenimiento/' . $this->clase . '/Editar.php';

@@ -1,6 +1,5 @@
 Options +FollowSymLinks
 RewriteEngine On
-ErrorDocument 404 /errors/404.html
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

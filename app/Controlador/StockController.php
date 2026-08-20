@@ -34,9 +34,9 @@ class StockController
     public function consultar()
     {
         $scripts = [
-            'stock.js',
-            'funciones.js',
-            'tabla.js'
+            'stock.min.js?v=' . VERSION,
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION
         ];
         require HEADER;
         require_once RUTA . '/Vistas/' . $this->clase . '/' . $this->clase . '.php';
@@ -46,8 +46,8 @@ class StockController
     {
         $scripts = [
             'Sortable.min.js',
-            'stockadmin.js',
-            'funciones.js',
+            'stockadmin.min.js?v=' . VERSION,
+            'funciones.min.js?v=' . VERSION,
         ];
         $id = $_GET['id'] ?? null;
         if ($id != null) {

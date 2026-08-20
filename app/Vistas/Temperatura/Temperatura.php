@@ -18,7 +18,7 @@
             </div>
             <div class="ms-md-auto d-flex flex-column flex-sm-row gap-2 mt-3 mt-md-0">
                 <button class="btn btn-primary d-flex align-items-center justify-content-center btn-register">
-                    <span class="material-icons-outlined">add</span>
+                    <span class="material-symbols-outlined">add</span>
                     <span class="ms-2">Registrar Temperatura</span>
                 </button>
             </div>

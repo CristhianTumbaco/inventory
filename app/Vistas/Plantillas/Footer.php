@@ -9,7 +9,7 @@
 <script src="<?php echo RUTA_WEB; ?>/assets/js/sidebarmenu.js"></script>
 <script src="<?php echo RUTA_WEB; ?>/assets/js/app.min.js"></script>
 <script src="<?php echo RUTA_WEB; ?>/assets/libs/simplebar/dist/simplebar.js"></script>
-<script src="https://cdn.datatables.net/v/bs5/dt-2.3.2/rg-1.5.1/datatables.min.js"></script>
+<script src="<?php echo RUTA_WEB; ?>/assets/libs/datatables/datatables.min.js"></script>
 <script src="<?php echo RUTA_WEB; ?>/assets/libs/datatables/jquery.highlight.js"></script>
 <script src="<?php echo RUTA_WEB; ?>/assets/libs/datatables/dataTables.searchHighlight.min.js"></script>
 <script src="<?php echo RUTA_WEB; ?>/assets/js/xlsx.full.min.js"></script>

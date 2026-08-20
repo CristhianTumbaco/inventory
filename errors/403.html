@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>403 - Acceso denegado</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f9fc;
+            color: #2b2b2b;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .error-container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .error-code {
+            font-size: 120px;
+            font-weight: 700;
+            color: #FA896B;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #777;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #5D87FF;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: background 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #4570e8;
+        }
+
+        @media (max-width: 600px) {
+            .error-code {
+                font-size: 90px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="error-container">
+        <div class="error-code">403</div>
+        <h1>Acceso denegado</h1>
+        <p>
+            No tienes permisos para acceder a este recurso.
+        </p>
+        <a onclick="history.back(-1)" class="btn">Regresar</a>
+    </main>
+</body>
+
+</html>

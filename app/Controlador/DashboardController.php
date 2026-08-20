@@ -18,11 +18,11 @@ class DashboardController
     public function consultar()
     {
         $scripts = [
-            'dashboard.js',
-            'graphPurchase.js',
-            'graphSales.js',
-            'graphInventory.js',
-            'funciones.js',
+            'dashboard.min.js?v=' . VERSION,
+            'graphPurchase.min.js?v=' . VERSION,
+            'graphSales.min.js?v=' . VERSION,
+            'graphInventory.min.js?v=' . VERSION,
+            'funciones.min.js?v=' . VERSION,
             '/assets/libs/apexcharts.js',
         ];
         require HEADER;

@@ -1,6 +1,9 @@
 $(document).ready(function () {
     $('#usuarios').addClass('selected');
     $('#usuarios a').addClass('active');
+    if ($('#table').length > 0) {
+        formatDatatable('table', 0, 'asc');
+    }
 });
 function mostrarPassword() {
     var cambio = document.getElementById("password");

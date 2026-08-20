@@ -34,9 +34,9 @@ class ReceptionController
     public function consultar()
     {
         $scripts = [
-            'recepcionview.js',
-            'funciones.js',
-            'tabla.js'
+            'recepcionview.min.js?v=' . VERSION,
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION,
         ];
         require HEADER;
         require_once RUTA . '/Vistas/' . $this->clase . '/' . $this->clase . '.php';
@@ -77,9 +77,9 @@ class ReceptionController
     public function administrar()
     {
         $scripts = [
-            'recepcion.js',
-            'funciones.js',
-            'tabla.js'
+            'recepcion.min.js?v=' . VERSION,
+            'funciones.min.js?v=' . VERSION,
+            'tabla.min.js?v=' . VERSION,
         ];
         $id = $_GET['id'] ?? null;
         if ($id != null) {
@@ -125,7 +125,7 @@ class ReceptionController
             echo json_encode(['success' => false, 'message' => 'Método no permitido']);
         }
     }
-    
+
     private function formatDataReceptionId($id)
     {
         $response = null;

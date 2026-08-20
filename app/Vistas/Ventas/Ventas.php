@@ -23,7 +23,7 @@
                 </button>
                 <a href="<?php echo RUTA_WEB; ?>/Ventas/Registrar"
                     class="btn btn-primary d-flex align-items-center justify-content-center">
-                    <span class="material-icons-outlined">add</span>
+                    <span class="material-symbols-outlined">add</span>
                     <span class="ms-2">Registrar Venta</span>
                 </a>
             </div>
