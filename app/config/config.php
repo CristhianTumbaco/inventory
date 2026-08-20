@@ -5,10 +5,15 @@ if (!isset($_SESSION)) {
     session_start();
 }
 date_default_timezone_set('America/Guayaquil');
-define('DBUSER', 'praxmed');
-define('DBPWD', 'praxmed');
-define('DBHOST', '127.0.0.1');
-define('DBNAME', 'seafood_inventory');
+$configPath = '/home/lissymar/db_config.ini';
+if (!file_exists($configPath)) {
+    die('Archivo de configuración no encontrado.');
+}
+$config = parse_ini_file($configPath);
+define('DBUSER', $config['DBUSER']);
+define('DBPWD', $config['DBPWD']);
+define('DBHOST', $config['DBHOST']);
+define('DBNAME', $config['DBNAME']);
 define('NOMBRE', 'Inventario');
 define('RUTA', dirname(__DIR__));
 define('RUTA_WEB', '/inventario/app');
