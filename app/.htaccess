@@ -1,0 +1,144 @@
+Options +FollowSymLinks
+RewriteEngine On
+ErrorDocument 404 /errors/404.html
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#LOGIN
+RewriteRule ^Login/?$ Controlador/LoginController.php?a=login [L,QSA]
+RewriteRule ^Logear/?$ Controlador/LoginController.php?a=access [L,QSA]
+RewriteRule ^Logout/?$ Controlador/LoginController.php?a=logout [L,QSA]
+
+#DASHBOARD
+RewriteRule ^Dashboard/?$ Controlador/DashboardController.php?a=consultar [L,QSA]
+RewriteRule ^Dashboard/analytics?$ Controlador/DashboardController.php?a=analytics [L,QSA]
+
+#COMPRAS
+RewriteRule ^Compras/?$ Controlador/PurchasesController.php?a=consultar [L,QSA]
+RewriteRule ^Compras/list?$ Controlador/PurchasesController.php?a=list [L,QSA]
+RewriteRule ^Compras/stats?$ Controlador/PurchasesController.php?a=stats [L,QSA]
+RewriteRule ^Compras/status?$ Controlador/PurchasesController.php?a=status [L,QSA]
+RewriteRule ^Compras/?([0-9]+)?/?$ Controlador/PurchasesController.php?a=resume&id=$1 [L,QSA]
+RewriteRule ^Compras/Registrar/?$ Controlador/PurchasesController.php?a=nuevo [L,QSA]
+RewriteRule ^Compras/catalogs/?$ Controlador/CatalogsController.php?a=purchase [L,QSA]
+RewriteRule ^Compras/create/?$ Controlador/PurchasesController.php?a=create [L,QSA]
+RewriteRule ^Compras/report/?$ Controlador/PurchasesController.php?a=report [L,QSA]
+RewriteRule ^Compras/update/?$ Controlador/PurchasesController.php?a=update [L,QSA]
+
+#RECEPCION
+RewriteRule ^Recepcion/?$ Controlador/ReceptionController.php?a=consultar [L,QSA]
+RewriteRule ^Recepcion/stats?$ Controlador/ReceptionController.php?a=stats [L,QSA]
+RewriteRule ^Recepcion/list?$ Controlador/ReceptionController.php?a=list [L,QSA]
+RewriteRule ^Recepcion/?([0-9]+)?/?$ Controlador/ReceptionController.php?a=administrar&id=$1 [L,QSA]
+RewriteRule ^Recepcion/create/?$ Controlador/ReceptionController.php?a=create [L,QSA]
+
+#STOCK
+RewriteRule ^Stock/?$ Controlador/StockController.php?a=consultar [L,QSA]
+RewriteRule ^Stock/?([0-9]+)?/?$ Controlador/StockController.php?a=administrar&id=$1 [L,QSA]
+RewriteRule ^Stock/stats?$ Controlador/StockController.php?a=stats [L,QSA]
+RewriteRule ^Stock/status?$ Controlador/StockController.php?a=status [L,QSA]
+RewriteRule ^Stock/list?$ Controlador/StockController.php?a=list [L,QSA]
+RewriteRule ^Stock/move?$ Controlador/StockController.php?a=move [L,QSA]
+RewriteRule ^Stock/decrease?$ Controlador/StockController.php?a=decrease [L,QSA]
+RewriteRule ^Stock/production?$ Controlador/StockController.php?a=production [L,QSA]
+
+
+#PRODUCCION
+RewriteRule ^Produccion/?$ Controlador/ProductionController.php?a=consultar [L,QSA]
+RewriteRule ^Produccion/catalogs/?$ Controlador/CatalogsController.php?a=production [L,QSA]
+RewriteRule ^Produccion/catalogsT/?$ Controlador/CatalogsController.php?a=preproduction [L,QSA]
+RewriteRule ^Produccion/create/?$ Controlador/ProductionController.php?a=create [L,QSA]
+
+#TRAZABILIDAD
+RewriteRule ^Trazabilidad/?$ Controlador/TraceabilityController.php?a=consultar [L,QSA]
+RewriteRule ^Trazabilidad/list?$ Controlador/TraceabilityController.php?a=list [L,QSA]
+RewriteRule ^Trazabilidad/?([0-9]+)?/?$ Controlador/TraceabilityController.php?a=resume&id=$1 [L,QSA]
+
+#VENTAS
+RewriteRule ^Ventas/?$ Controlador/SalesController.php?a=consultar [L,QSA]
+RewriteRule ^Ventas/list?$ Controlador/SalesController.php?a=list [L,QSA]
+RewriteRule ^Ventas/stats?$ Controlador/SalesController.php?a=stats [L,QSA]
+RewriteRule ^Ventas/status?$ Controlador/SalesController.php?a=status [L,QSA]
+RewriteRule ^Ventas/?([0-9]+)?/?$ Controlador/SalesController.php?a=resume&id=$1 [L,QSA]
+RewriteRule ^Ventas/Registrar/?$ Controlador/SalesController.php?a=nuevo [L,QSA]
+RewriteRule ^Ventas/catalogs/?$ Controlador/CatalogsController.php?a=purchase [L,QSA]
+RewriteRule ^Ventas/create/?$ Controlador/SalesController.php?a=create [L,QSA]
+RewriteRule ^Ventas/report/?$ Controlador/SalesController.php?a=report [L,QSA]
+RewriteRule ^Ventas/update/?$ Controlador/SalesController.php?a=update [L,QSA]
+
+
+#MANTENIMIENTO
+#CATEGORIAS
+RewriteRule ^Categorias/?$ Controlador/CategoriesController.php?a=consultar [L,QSA]
+RewriteRule ^Categorias/Nuevo?$ Controlador/CategoriesController.php?a=nuevo [L,QSA]
+RewriteRule ^Categorias/save?$ Controlador/CategoriesController.php?a=save [L,QSA]
+RewriteRule ^Categorias/?([0-9]+)?/?$ Controlador/CategoriesController.php?a=editar&id=$1 [L,QSA]
+RewriteRule ^Categorias/update?$ Controlador/CategoriesController.php?a=update [L,QSA]
+RewriteRule ^Categorias/create/?$ Controlador/CategoriesController.php?a=create [L,QSA]
+
+#PRODUCTOS
+RewriteRule ^Productos/?$ Controlador/ProductsController.php?a=consultar [L,QSA]
+RewriteRule ^Productos/Nuevo?$ Controlador/ProductsController.php?a=nuevo [L,QSA]
+RewriteRule ^Productos/save?$ Controlador/ProductsController.php?a=save [L,QSA]
+RewriteRule ^Productos/?([0-9]+)?/?$ Controlador/ProductsController.php?a=editar&id=$1 [L,QSA]
+RewriteRule ^Productos/update?$ Controlador/ProductsController.php?a=update [L,QSA]
+RewriteRule ^Productos/create/?$ Controlador/ProductsController.php?a=create [L,QSA]
+
+#SUBPRODUCTOS
+RewriteRule ^Subproductos/?$ Controlador/SubproductsController.php?a=consultar [L,QSA]
+RewriteRule ^Subproductos/Nuevo?$ Controlador/SubproductsController.php?a=nuevo [L,QSA]
+RewriteRule ^Subproductos/save?$ Controlador/SubproductsController.php?a=save [L,QSA]
+RewriteRule ^Subproductos/?([0-9]+)?/?$ Controlador/SubproductsController.php?a=editar&id=$1 [L,QSA]
+RewriteRule ^Subproductos/update?$ Controlador/SubproductsController.php?a=update [L,QSA]
+RewriteRule ^Subproductos/create/?$ Controlador/SubproductsController.php?a=create [L,QSA]
+
+#UBICACIONES
+RewriteRule ^Ubicaciones/?$ Controlador/LocationsController.php?a=consultar [L,QSA]
+RewriteRule ^Ubicaciones/Nuevo?$ Controlador/LocationsController.php?a=nuevo [L,QSA]
+RewriteRule ^Ubicaciones/save?$ Controlador/LocationsController.php?a=save [L,QSA]
+RewriteRule ^Ubicaciones/?([0-9]+)?/?$ Controlador/LocationsController.php?a=editar&id=$1 [L,QSA]
+RewriteRule ^Ubicaciones/update?$ Controlador/LocationsController.php?a=update [L,QSA]
+
+#PRESENTACIONES
+RewriteRule ^Presentaciones/?$ Controlador/PresentationsController.php?a=consultar [L,QSA]
+RewriteRule ^Presentaciones/Nuevo?$ Controlador/PresentationsController.php?a=nuevo [L,QSA]
+RewriteRule ^Presentaciones/save?$ Controlador/PresentationsController.php?a=save [L,QSA]
+RewriteRule ^Presentaciones/?([0-9]+)?/?$ Controlador/PresentationsController.php?a=editar&id=$1 [L,QSA]
+RewriteRule ^Presentaciones/update?$ Controlador/PresentationsController.php?a=update [L,QSA]
+
+#METODOS DE PAGO
+RewriteRule ^MetodoPago/?$ Controlador/PaymentMethodController.php?a=consultar [L,QSA]
+RewriteRule ^MetodoPago/Nuevo?$ Controlador/PaymentMethodController.php?a=nuevo [L,QSA]
+RewriteRule ^MetodoPago/save?$ Controlador/PaymentMethodController.php?a=save [L,QSA]
+RewriteRule ^MetodoPago/?([0-9]+)?/?$ Controlador/PaymentMethodController.php?a=editar&id=$1 [L,QSA]
+RewriteRule ^MetodoPago/update?$ Controlador/PaymentMethodController.php?a=update [L,QSA]
+
+#ESTADO TRANSACCIONES
+RewriteRule ^Estados/?$ Controlador/StatusTransactionController.php?a=consultar [L,QSA]
+RewriteRule ^Estados/Nuevo?$ Controlador/StatusTransactionController.php?a=nuevo [L,QSA]
+RewriteRule ^Estados/save?$ Controlador/StatusTransactionController.php?a=save [L,QSA]
+RewriteRule ^Estados/?([0-9]+)?/?$ Controlador/StatusTransactionController.php?a=editar&id=$1 [L,QSA]
+RewriteRule ^Estados/update?$ Controlador/StatusTransactionController.php?a=update [L,QSA]
+
+#PROVEEDOR
+RewriteRule ^Proveedores/?$ Controlador/SupplierController.php?a=consultar [L,QSA]
+RewriteRule ^Proveedores/Nuevo?$ Controlador/SupplierController.php?a=nuevo [L,QSA]
+RewriteRule ^Proveedores/save?$ Controlador/SupplierController.php?a=save [L,QSA]
+RewriteRule ^Proveedores/?([0-9]+)?/?$ Controlador/SupplierController.php?a=editar&id=$1 [L,QSA]
+RewriteRule ^Proveedores/update?$ Controlador/SupplierController.php?a=update [L,QSA]
+RewriteRule ^Proveedores/create/?$ Controlador/SupplierController.php?a=create [L,QSA]
+
+#CUENTAS
+RewriteRule ^Usuarios/?$ Controlador/UsersController.php?a=consultar [L,QSA]
+RewriteRule ^Usuarios/Nuevo?$ Controlador/UsersController.php?a=nuevo [L,QSA]
+RewriteRule ^Usuarios/save?$ Controlador/UsersController.php?a=save [L,QSA]
+RewriteRule ^Usuarios/?([0-9]+)?/?$ Controlador/UsersController.php?a=editar&id=$1 [L,QSA]
+RewriteRule ^Usuarios/update?$ Controlador/UsersController.php?a=update [L,QSA]
+
+
+#TEMPERATURA
+RewriteRule ^Temperatura/?$ Controlador/LocationsController.php?a=temperatura [L,QSA]
+RewriteRule ^Temperatura/list?$ Controlador/LocationsController.php?a=list [L,QSA]
+RewriteRule ^Temperatura/catalogs?$ Controlador/CatalogsController.php?a=temperature [L,QSA]
+RewriteRule ^Temperatura/create?$ Controlador/LocationsController.php?a=create [L,QSA]

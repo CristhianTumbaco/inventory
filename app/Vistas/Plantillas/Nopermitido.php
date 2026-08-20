@@ -1,0 +1,1 @@
+<div class="text-center mt-5">No tiene permisos</div>
