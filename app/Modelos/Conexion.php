@@ -13,8 +13,8 @@ class Conexion
         try {
             $this->db = new PDO("mysql:host=" . DBHOST . ":3306; dbname=" . DBNAME, DBUSER, DBPWD);
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->db->exec("set character set utf8"); // encodificacion de caracteres para que muestre 
-            // adecuadamente caracteres  especiales (tildes, dieresis, etc) en el navegador
+            $this->db->exec("SET time_zone = '-05:00'");
+            $this->db->exec("SET character set utf8");
         } catch (PDOException $e) {
             /*echo "linea del error " . $e->getLine();
             echo "</br>";
