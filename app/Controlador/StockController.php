@@ -179,6 +179,7 @@ class StockController
                 'cantidad' => (float)$row['cantidad'],
                 'toneladas' => round($row['cantidad'] / $toneladas, 3),
                 'paquetes' => (float)$row['paquetes'],
+                'unidades' => $row['unidades'],
                 'ultima_actualizacion' => $row['ultima_actualizacion']
             ];
         }

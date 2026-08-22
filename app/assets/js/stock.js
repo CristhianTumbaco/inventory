@@ -122,7 +122,10 @@ function buildList(data) {
                     <td>${location.presentacion}</td>
                     <td class="text-end">${location.cantidad} Lbs</td>
                     <td class="text-end">${location.toneladas} T</td>
-                    <td class="text-end">${location.paquetes}</td>
+                    <td class="text-end">
+                        <div class="fw-bold fs-3">${location.paquetes}</div>
+                        <div class="text-muted fs-2">${location.unidades != null ? `${Number(location.unidades)} U` : ''}</div>
+                    </td>
                     <td>
                         <div class="fw-bold fs-3">${formatoRelativo(fecha)}</div>
                         <div class="text-muted">${formatoFechaCorta(fecha)}</div>

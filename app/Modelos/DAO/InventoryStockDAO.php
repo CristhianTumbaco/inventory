@@ -120,12 +120,27 @@ class InventoryStockDAO
         p.id AS presentacionId,
         p.name AS presentacion,
         SUM(a.package_count) AS paquetes,
+        COALESCE(u.unidades, null) AS unidades,
         MAX(a.updated_at) AS ultima_actualizacion
         FROM inventory_stock a
         INNER JOIN products c ON a.product_id = c.id
         INNER JOIN subproducts d ON a.subproduct_id = d.id
         INNER JOIN locations f ON a.location_id = f.id
-        INNER JOIN presentations p ON a.presentation_id = p.id";
+        INNER JOIN presentations p ON a.presentation_id = p.id
+        LEFT JOIN (
+            SELECT
+            product_id,
+            subproduct_id,
+            location_id,
+            presentation_id,
+            SUM(units_per_package * package_count) AS unidades
+            FROM inventory_packages
+            GROUP BY
+            product_id,
+            subproduct_id,
+            location_id,
+            presentation_id
+        ) u ON u.product_id = a.product_id AND u.subproduct_id = a.subproduct_id AND u.location_id = a.location_id AND u.presentation_id = a.presentation_id";
         if (!empty($filterData['where'])) {
             $sql .= " WHERE " . implode(' AND ', $filterData['where']);
         }

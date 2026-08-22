@@ -246,13 +246,14 @@ class StockProcessController
         float $packagesToMove,
         float $weightToMove
     ) {
-        $destinationPackage = $this->inventoryPackagesDAO->validatedId([
+        $destinationPackage = $this->inventoryPackagesDAO->validatedIdUnit([
             $sourcePackage->getBatch_id(),
             $sourcePackage->getProduct_id(),
             $sourcePackage->getSubproduct_id(),
             $newLocationId,
             $sourcePackage->getPresentation_id(),
-            $sourcePackage->getPackage_weight_lb()
+            $sourcePackage->getPackage_weight_lb(),
+            $sourcePackage->getUnits_per_package()
         ]);
         if ($destinationPackage != null) {
             $package = new InventoryPackages();
