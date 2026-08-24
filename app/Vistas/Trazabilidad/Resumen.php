@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-2 w-100">
+            <div class="p-2 w-100 table-responsive">
                 <table class="table table-sm table-borderless">
                     <tr>
                         <th>Producto:</th>
@@ -82,11 +82,11 @@
                 $formatted =  $months[(int)$dateObj->format('m')] . ' ' . $dateObj->format('Y');
                 $events = $history['events'];
             ?>
-                <div class="col-1 text-center">
+                <div class="col-lg-1 col-12 text-center">
                     <div class="h4 fw-semibold"><?= $dateObj->format('d') ?></div>
                     <div class="text-muted"><?= $formatted ?></div>
                 </div>
-                <div class="col-11">
+                <div class="col-lg-11 col-12">
                     <ul class="timeline-widget mb-0 position-relative mb-3">
                         <?php
                         foreach ($events as $event) {
@@ -100,7 +100,7 @@
                                     <span class="timeline-badge-border d-block flex-shrink-0"></span>
                                 </div>
                                 <div class="timeline-desc w-100">
-                                    <table class="table table-borderless w-100 mb-0" style="table-layout: fixed;">
+                                    <table class="table table-borderless w-100 mb-0 table-responsive-mobile" style="table-layout: fixed;">
                                         <tr>
                                             <td style="width: 38%;">
                                                 <?php if ($type): ?>

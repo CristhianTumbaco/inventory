@@ -102,6 +102,13 @@ function buildInventoryStats(data) {
             </div>
         </div>
     </div>
+    <div class="col-lg-12 col-12">
+        <div class="card w-100 mb-2">
+            <div class="card-body p-0">
+                <div id="chart3" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
     <div class="col-lg-4 col-12">
         <div class="card w-100 mb-2">
             <div class="card-body p-0">
@@ -110,13 +117,6 @@ function buildInventoryStats(data) {
         </div>
     </div>
     <div class="col-lg-8 col-12">
-        <div class="card w-100 mb-2">
-            <div class="card-body p-0">
-                <div id="chart3" class="mt-3"></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-12 col-12">
         <div class="card w-100 mb-2" id="dataExpired">
         </div>
     </div>
@@ -255,8 +255,11 @@ function buildInventoryGraphProducts(data) {
             words.slice(middle).join(' ')
         ];
     });
-    const totals = data.map(item =>
+    /*const totals = data.map(item =>
         Number((Number(item.total) / 2200).toFixed(2))
+    );*/
+    const totals = data.map(item =>
+        Number(item.total) / 2200
     );
     const options = {
         series: [{
@@ -265,7 +268,8 @@ function buildInventoryGraphProducts(data) {
         }],
         chart: {
             type: 'bar',
-            height: 500,
+            height: undefined,
+            width: '100%',
             toolbar: {
                 show: false
             }
@@ -277,9 +281,24 @@ function buildInventoryGraphProducts(data) {
         colors: ['#1565C0'],
         plotOptions: {
             bar: {
+                horizontal: true,
                 borderRadius: 4,
                 borderRadiusApplication: 'end',
-                horizontal: true
+                dataLabels: {
+                    position: 'top'
+                }
+            }
+        },
+
+        dataLabels: {
+            enabled: true,
+            textAnchor: 'start',
+            offsetX: 8,
+            style: {
+                colors: ['#333333']
+            },
+            formatter: function (val) {
+                return val.toFixed(2) + 'T';
             }
         },
         xaxis: {

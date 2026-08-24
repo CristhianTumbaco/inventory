@@ -281,3 +281,10 @@ td.precio::before {
 .text-purple {
   color: #6851d7;
 }
+@media (max-width: 767.98px) {
+    .table-responsive-mobile td,
+    .table-responsive-mobile th {
+        display: block;
+        width: 100% !important;
+    }
+}

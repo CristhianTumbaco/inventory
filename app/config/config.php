@@ -11,7 +11,7 @@ if (!file_exists($configPath)) {
     die('Archivo de configuración no encontrado.');
 }
 $config = parse_ini_file($configPath);
-define('VERSION', '1.1');
+define('VERSION', '1.2');
 define('DBUSER', $config['DBUSER']);
 define('DBPWD', $config['DBPWD']);
 define('DBHOST', $config['DBHOST']);
