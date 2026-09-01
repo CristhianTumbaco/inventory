@@ -147,7 +147,7 @@
                                     <th>Subproducto</th>
                                     <th>Presentación</th>
                                     <th>Cantidad</th>
-                                    <th>Precio</th>
+                                    <th>Precio U.</th>
                                     <th>Total</th>
                                     <th>Acciones</th>
                                 </tr>

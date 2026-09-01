@@ -129,7 +129,7 @@ function buildListProduct(data) {
     if (data.length > 0) {
         data.forEach(item => {
             tbody += `
-            <tr class="text-nowrap" data-id="${item.id}" data-batch="${item.batchId}" data-packages="${Number(item.package_count)}">
+            <tr class="text-nowrap" data-id="${item.id}" data-weightlb="${Number(item.package_weight_lb)}" data-batch="${item.batchId}" data-packages="${Number(item.package_count)}">
                 <td>${item.batch_code}</td>
                 <td>${item.ubicacion}</td>
                 <td>${Number(item.package_count) + ' ' + item.presentacion}</td>
@@ -138,6 +138,7 @@ function buildListProduct(data) {
                 <td>
                     <div class="input-group input-group-sm optionSale">
                         <input type="text" onkeyup="calculateTotal('quantity', this)" class="form-control form-control-sm decimal-only quantitySale" placeholder="Cantidad a vender">
+                        <input type="text" class="form-control form-control-sm weightSale" placeholder="Peso Total" disabled readonly>
                         <div class="money-wrapper">
                             <span class="money-symbol">$</span>
                             <input onkeyup="calculateTotal('price', this)" class="form-control form-control-sm rounded-0 money-input decimal-only priceSale" type="text" placeholder="Precio por libra">
@@ -246,7 +247,7 @@ function buildTableProducts() {
                 $('<td>').text(product.product),
                 $('<td>').text(product.subproduct),
                 $('<td>').text(`${product.inputPackage} ${product.presentacion} de ${product.package_weight} Libras`),
-                $('<td>').text(product.quantity),
+                $('<td>').text(product.quantity+" libras"),
                 $('<td>').addClass('precio').text(product.price),
                 $('<td>').addClass('precio').text(product.total),
                 $('<td>').addClass('text-center user-select-none').append(
@@ -453,30 +454,38 @@ function onProductChange() {
 
 function calculateTotal(type, input) {
     const row = input.closest('tr');
+    const weightlb = parseFloat(row.dataset.weightlb) || 0;
     const quantity = parseFloat(row.querySelector('.quantitySale').value) || 0;
     const priceInput = row.querySelector('.priceSale');
     const totalInput = row.querySelector('.totalSale');
+    const weightInput = row.querySelector('.weightSale');
+   
     if (quantity <= 0) {
         totalInput.value = '';
+        weightInput.value = '';
         return;
     }
     const price = parseFloat(priceInput.value);
     const total = parseFloat(totalInput.value);
     if (type === 'price') {
         if (!isNaN(price)) {
-            totalInput.value = (quantity * price).toFixed(2);
+            totalInput.value = ((quantity*weightlb) * price).toFixed(2);
+            weightInput.value = Number((quantity * weightlb).toFixed(2))+' libras';
         }
     }
     else if (type === 'total') {
         if (!isNaN(total)) {
-            priceInput.value = (total / quantity).toFixed(2);
+            priceInput.value = (total / (quantity * weightlb)).toFixed(2);
+            weightInput.value = Number((quantity * weightlb).toFixed(2))+' libras';
         }
     }
     else if (type === 'quantity') {
         if (!isNaN(price)) {
-            totalInput.value = (quantity * price).toFixed(2);
+            totalInput.value = ((quantity*weightlb) * price).toFixed(2);
+            weightInput.value = Number((quantity * weightlb).toFixed(2))+' libras';
         } else if (!isNaN(total)) {
-            priceInput.value = (total / quantity).toFixed(2);
+            priceInput.value = (total / (quantity * weightlb)).toFixed(2);
+            weightInput.value = Number((quantity * weightlb).toFixed(2))+' libras';
         }
     }
 }
